@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Percabangan Switch Case</title>
+  </head>
+  <body>
+    <script>
+      var jawab = prompt("Pilih kotak misteri yang akan kamu pilih (1-5):");
+      var hadiah = "";
+
+      switch (jawab) {
+        case "1":
+          hadiah = "Pulpen";
+          break;
+        case "2":
+          hadiah = "Pensil";
+          break;
+        case "3":
+          hadiah = "Buku";
+          break;
+        case "4":
+          hadiah = "Kotak Pensil";
+          break;
+        case "5":
+          hadiah = "Penghapus";
+          break;
+        default:
+          document.write("<p>Kotak yang kamu pilih tidak ada</p>");
+      }
+
+      if (hadiah == "") {
+        document.write("<p>Kamu gagal mendapatkan hadiah</p>");
+      } else {
+        document.write("<h2>Kamu mendapatkan hadiah: </h2>" + hadiah);
+      }
+    </script>
+  </body>
+</html>

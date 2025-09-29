@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Percabangan IF</title>
+  </head>
+  <body>
+    <h1>Hitung Diskon Belanja</h1>
+    <div id="totalBelanja"></div>
+
+    <script>
+      var totalBelanja = parseInt(prompt("Masukkan Total Belanja", 0));
+      var diskon = 20; // diskon 20%
+      var hargaAkhir = totalBelanja;
+
+      if (totalBelanja > 50000) {
+        var potongan = (totalBelanja * diskon) / 100;
+        hargaAkhir = totalBelanja - potongan;
+      }
+
+      document.getElementById("totalBelanja").innerHTML = "<p>Total Belanja: Rp " + totalBelanja + "</p>" + "<p>Diskon: " + (totalBelanja > 50000 ? diskon + "%" : "0%") + "</p>" + "<p><b>Harga Akhir: Rp " + hargaAkhir + "</b></p>";
+    </script>
+  </body>
+</html>
