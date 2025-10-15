@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Klik</title>
+</head>
+<body>
+    <button on click="hello()">Hello</button>
+    <button id="hello-stikompgri">Hello STIKOM</button>
+
+    <script>
+        function hello(){
+            alert("Hello World");
+        }
+
+        const btnLogin = document.getElementById("hello-stikompgri");
+        btnLogin.addEventListener("click", function(){
+            alert("Hello STIKOM");
+        });
+    </script>
+</body>
+</html>

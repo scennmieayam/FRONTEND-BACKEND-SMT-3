@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUGAS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+        }
+        .card {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+        }
+        .form-control, .form-select {
+            border-radius: 8px;
+        }
+        .btn {
+            border-radius: 8px;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-4">
+                <h1 class="display-4 text-dark fw-bold">PROGRAM PENJUALAN MOTOR DEALER RESINGGG</h1>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title mb-0">Form Pembelian</h5>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Merk Motor</label>
+                                <select name="merk" id="merk" class="form-select">
+                                    <option value="honda">Honda</option>
+                                    <option value="yamaha">Yamaha</option>
+                                    <option value="suzuki">Suzuki</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Aksesoris</label>
+                                <div class="form-check">
+                                    <input type="checkbox" name="aksesoris" id="aksesoris1" value="Velg Saman BREMBO" class="form-check-input">
+                                    <label for="aksesoris1" class="form-check-label">Velg Saman BREMBO</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" name="aksesoris" id="aksesoris2" value="Helm NJZ" class="form-check-input">
+                                    <label for="aksesoris2" class="form-check-label">Helm NJZ</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" name="aksesoris" id="aksesoris3" value="Jaket NJZ" class="form-check-input">
+                                    <label for="aksesoris3" class="form-check-label">Jaket NJZ</label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Pembayaran</label>
+                                <div class="form-check">
+                                    <input type="radio" name="pembayaran" id="pembayaran1" value="Tunai" class="form-check-input">
+                                    <label for="pembayaran1" class="form-check-label">Tunai</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" name="pembayaran" id="pembayaran2" value="Kredit" class="form-check-input">
+                                    <label for="pembayaran2" class="form-check-label">Kredit</label>
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Harga</label>
+                                    <div>
+                                        <span id="harga" class="badge bg-success fs-6">0</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Bunga / Diskon</label>
+                                    <div>
+                                        <span id="diskon" class="badge bg-warning fs-6">0</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Total</label>
+                                    <div>
+                                        <span id="total" class="badge bg-primary fs-6">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary me-2">Proses</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="card-title mb-0">Daftar Harga</h5>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="text-dark fw-bold mb-3">Harga Motor</h6>
+                        <div class="list-group mb-4">
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                Honda
+                                <span class="badge text-dark rounded-pill">Rp 15.000.000</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                Yamaha
+                                <span class="badge text-dark rounded-pill">Rp 14.000.000</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                Suzuki
+                                <span class="badge text-dark rounded-pill">Rp 13.000.000</span>
+                            </div>
+                        </div>
+                        
+                        <h6 class="text-success fw-bold mb-3">Aksesoris</h6>
+                        <div class="list-group">
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                Velg Saman BREMBO
+                                <span class="badge text-dark rounded-pill">Rp 450.000</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                Helm NJZ
+                                <span class="badge text-dark rounded-pill">Rp 250.000</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                Jaket NJZ
+                                <span class="badge text-dark rounded-pill">Rp 300.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //data harga motor
+        const hargaMotor = {
+            'honda': 15000000,
+            'yamaha': 14000000,
+            'suzuki': 13000000
+        };
+
+        //data harga aksesoris
+        const hargaAksesoris = {
+            'Velg Saman BREMBO': 450000,
+            'Helm NJZ': 250000,
+            'Jaket NJZ': 300000
+        };
+
+        //mendapatkan elemen-elemen
+        const merkSelect = document.getElementById('merk');
+        const aksesorisCheckboxes = document.querySelectorAll('input[name="aksesoris"]');
+        const pembayaranRadios = document.querySelectorAll('input[name="pembayaran"]');
+        const hargaSpan = document.getElementById('harga');
+        const diskonSpan = document.getElementById('diskon');
+        const totalSpan = document.getElementById('total');
+        const submitButton = document.querySelector('button[type="submit"]');
+        const resetButton = document.querySelector('button[type="reset"]');
+
+        function hitungHarga() {
+            let totalHarga = 0;
+            let diskonPersen = 0;
+
+            //harga motor merk
+            const merkTerpilih = merkSelect.value;
+            totalHarga += hargaMotor[merkTerpilih] || 0;
+
+            //harga aksesoris yang dipilih
+            aksesorisCheckboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    totalHarga += hargaAksesoris[checkbox.value] || 0;
+                }
+            });
+
+            //diskon/bunga berdasarkan pembayaran
+            pembayaranRadios.forEach(radio => {
+                if (radio.checked) {
+                    if (radio.value === 'Tunai') {
+                        diskonPersen = 10; //diskon
+                    } else if (radio.value === 'Kredit') {
+                        diskonPersen = -15; //bunga
+                    }
+                }
+            });
+
+            //menampilkan harga dan diskon
+            hargaSpan.textContent = totalHarga.toLocaleString('id-ID', {
+                style: 'currency',
+                currency: 'IDR'
+            });
+
+            diskonSpan.textContent = diskonPersen + '%';
+
+            //hitung total final
+            let totalFinal;
+            if (diskonPersen > 0) {
+                //diskon (tunai)
+                const potongan = totalHarga * (diskonPersen / 100);
+                totalFinal = totalHarga - potongan;
+            } else if (diskonPersen < 0) {
+                //bunga (kredit)
+                const bunga = totalHarga * (Math.abs(diskonPersen) / 100);
+                totalFinal = totalHarga + bunga;
+            } else {
+                //tidak ada diskon/bunga
+                totalFinal = totalHarga;
+            }
+
+            totalSpan.textContent = totalFinal.toLocaleString('id-ID', {
+                style: 'currency',
+                currency: 'IDR'
+            });
+        }
+
+        
+        merkSelect.addEventListener('change', hitungHarga);
+        
+        aksesorisCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', hitungHarga);
+        });
+        
+        pembayaranRadios.forEach(radio => {
+            radio.addEventListener('change', hitungHarga);
+        });
+
+        submitButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            hitungHarga();
+            
+            const merkTerpilih = merkSelect.value;
+            const aksesorisTerpilih = Array.from(aksesorisCheckboxes)
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+            const pembayaranTerpilih = Array.from(pembayaranRadios)
+                .find(radio => radio.checked)?.value;
+
+            alert(`Detail Pembelian:
+Merk Motor: ${merkTerpilih.charAt(0).toUpperCase() + merkTerpilih.slice(1)}
+Aksesoris: ${aksesorisTerpilih.length > 0 ? aksesorisTerpilih.join(', ') : 'Tidak ada'}
+Pembayaran: ${pembayaranTerpilih || 'Belum dipilih'}
+Harga Awal: ${hargaSpan.textContent}
+Diskon/Bunga: ${diskonSpan.textContent}
+Total: ${totalSpan.textContent}`);
+        });
+
+        resetButton.addEventListener('click', function() {
+            merkSelect.selectedIndex = 0;
+            aksesorisCheckboxes.forEach(checkbox => checkbox.checked = false);
+            pembayaranRadios.forEach(radio => radio.checked = false);
+            hargaSpan.textContent = '0';
+            diskonSpan.textContent = '0';
+            totalSpan.textContent = '0';
+        });
+
+        //hitung harga awal
+        hitungHarga();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
