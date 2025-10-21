@@ -8,7 +8,7 @@ Kumpulan praktek AJAX dan form handling. Dari yang basic sampe yang agak advance
 Praktek AJAX pake jQuery. Lebih mudah dan simple.
 
 ### `AJAXWJS/`
-AJAX dengan JavaScript vanilla. Lebih challenging tapi lebih paham.
+AJAX dengan JavaScript. Lebih challenging tapi lebih paham.
 
 ### `SELECT-CASCADING-DROPDOWNS/`
 Dropdown yang saling berkaitan. Pilih provinsi, muncul kotanya.
@@ -21,7 +21,7 @@ Tugas akhir: Kalkulator biaya kirim paket. Pake semua yang udah dipelajari.
 
 ## Yang Dipelajari
 
-- AJAX dengan jQuery dan vanilla JS
+- AJAX dengan jQuery dan JS
 - Form handling
 - Cascading dropdowns
 - JSON data handling
