@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhitungan Biaya Kirim Paket</title>
+</head>
+<body>
+    <h2>Kalkulator Biaya Kirim Paket</h2>
+    
+    <form id="formKirim">
+        <div>
+            <label>Nomor Resi :</label>
+            <input type="text" id="nomorResi" required>
+        </div><br>
+        
+        <div>
+            <label>Berat Barang :</label>
+            <input type="number" id="beratBarang" step="0.1" min="0" required>
+        </div><br>
+        
+        <div>
+            <label>Kota Asal :</label>
+            <select id="kotaAsal" required>
+                <option value="">-- Pilih Kota Asal --</option>
+                <option value="Banyuwangi">Banyuwangi</option>
+                <option value="Jember">Jember</option>
+                <option value="Probolinggo">Probolinggo</option>
+                <option value="Surabaya">Surabaya</option>
+            </select>
+        </div><br>
+        
+        <div>
+            <label>Kota Tujuan :</label>
+            <select id="kotaTujuan" required>
+                <option value="">-- Pilih Kota Tujuan --</option>
+                <option value="Banyuwangi">Banyuwangi</option>
+                <option value="Jember">Jember</option>
+                <option value="Probolinggo">Probolinggo</option>
+                <option value="Surabaya">Surabaya</option>
+            </select>
+        </div><br>
+        
+        <div>
+            <label>Total Biaya Pengiriman :</label>
+            <input type="text" id="totalBiaya" value="Rp. 0" readonly>
+        </div><br>
+        
+        <button type="button" onclick="hitungBiaya()">Hitung Biaya</button>
+        <button type="button" onclick="resetForm()">Reset</button>
+    </form>
+
+    <h3>Tabel Biaya Berat</h3>
+    <table border="1">
+        <tr>
+            <th>Berat</th>
+            <th>Biaya</th>
+        </tr>
+        <tr>
+            <td>0 - 1 Kg</td>
+            <td>Rp 1.500</td>
+        </tr>
+        <tr>
+            <td>1.1 - 5 Kg</td>
+            <td>Rp 2.500</td>
+        </tr>
+        <tr>
+            <td>5.1 - 10 Kg</td>
+            <td>Rp 3.500</td>
+        </tr>
+        <tr>
+            <td>Diatas 10 Kg</td>
+            <td>Rp 4.500</td>
+        </tr>
+    </table>
+
+    <h3>Tabel Biaya Jarak</h3>
+    <table border="1">
+        <tr>
+            <th>Kota </th>
+            <th>Banyuwangi</th>
+            <th>Jember</th>
+            <th>Probolinggo</th>
+            <th>Surabaya</th>
+        </tr>
+        <tr>
+            <td>Banyuwangi</td>
+            <td>Rp. 5.000</td>
+            <td>Rp. 7.500</td>
+            <td>Rp. 10.000</td>
+            <td>Rp. 15.000</td>
+        </tr>
+        <tr>
+            <td>Jember</td>
+            <td>Rp. 7.500</td>
+            <td>Rp. 5.000</td>
+            <td>Rp. 8.500</td>
+            <td>Rp. 12.500</td>
+        </tr>
+        <tr>
+            <td>Probolinggo</td>
+            <td>Rp. 10.000</td>
+            <td>Rp. 8.500</td>
+            <td>Rp. 5.000</td>
+            <td>Rp. 6.500</td>
+        </tr>
+        <tr>
+            <td>Surabaya</td>
+            <td>Rp. 15.000</td>
+            <td>Rp. 12.500</td>
+            <td>Rp. 6.500</td>
+            <td>Rp. 5.000</td>
+        </tr>
+    </table>
+
+    <script>
+        // biaya jarak
+        const biayaJarak = {
+            'Banyuwangi-Banyuwangi': 5000,
+            'Banyuwangi-Jember': 7500,
+            'Banyuwangi-Probolinggo': 10000,
+            'Banyuwangi-Surabaya': 15000,
+            'Jember-Banyuwangi': 7500,
+            'Jember-Jember': 5000,
+            'Jember-Probolinggo': 8500,
+            'Jember-Surabaya': 12500,
+            'Probolinggo-Banyuwangi': 10000,
+            'Probolinggo-Jember': 8500,
+            'Probolinggo-Probolinggo': 5000,
+            'Probolinggo-Surabaya': 6500,
+            'Surabaya-Banyuwangi': 15000,
+            'Surabaya-Jember': 12500,
+            'Surabaya-Probolinggo': 6500,
+            'Surabaya-Surabaya': 5000
+        };
+
+        function hitungBiayaBerat(berat) {
+            if (berat <= 1) {
+                return 1500;
+            } else if (berat <= 5) {
+                return 2500;
+            } else if (berat <= 10) {
+                return 3500;
+            } else {
+                return 4500;
+            }
+        }
+
+        function hitungBiaya() {
+            const berat = parseFloat(document.getElementById('beratBarang').value);
+            const kotaAsal = document.getElementById('kotaAsal').value;
+            const kotaTujuan = document.getElementById('kotaTujuan').value;
+
+            if (!berat || !kotaAsal || !kotaTujuan) {
+                alert('Mohon isi semua field yang diperlukan!');
+                return;
+            }
+
+            // menghitung biaya berat
+            const biayaBerat = hitungBiayaBerat(berat);
+
+            // menghitung biaya jarak
+            const keyJarak = kotaAsal + '-' + kotaTujuan;
+            const biayaJarakTotal = biayaJarak[keyJarak] || 0;
+
+            // menghitung total biaya
+            const totalBiaya = biayaBerat + biayaJarakTotal;
+
+            // menampilkan hasil
+            document.getElementById('totalBiaya').value = 'Rp. ' + totalBiaya.toLocaleString('id-ID');
+
+            // menampilkan hasil perhitungan
+            console.log(`Detail Perhitungan:`);
+            console.log(`Biaya Berat (${berat} kg): Rp. ${biayaBerat.toLocaleString('id-ID')}`);
+            console.log(`Biaya Jarak (${kotaAsal} → ${kotaTujuan}): Rp. ${biayaJarakTotal.toLocaleString('id-ID')}`);
+            console.log(`Total Biaya: Rp. ${totalBiaya.toLocaleString('id-ID')}`);
+        }
+
+        function resetForm() {
+            document.getElementById('formKirim').reset();
+            document.getElementById('totalBiaya').value = 'Rp. 0';
+        }
+    </script>
+</body>
+</html>
