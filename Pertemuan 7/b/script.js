@@ -1,4 +1,4 @@
-// 1. Inisialisasi Array untuk menyimpan data
+// 1. Inisialisasi Array untuk menyimpan dataaa
 var databarang = [];
 
 // 2. Dapatkan elemen DOM
