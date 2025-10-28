@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylee.css">
+  <title>popup</title>
+</head>
+
+<body>
+  <button id="tombolBuka">Buka PopUp</button>
+
+  <div id="modalOverlay" class="popup-tersembunyi">
+    <div class="popup-konten">
+      <span class="tombol-tutup" id="tombolTutup">&times;</span>
+      <h2>Judul PopUp</h2>
+      <p>Ini adalah isi dari pop-up.</p>
+    </div>
+  </div>
+  <script>
+    const tombolBuka = document.getElementById('tombolBuka');
+    const tombolTutup = document.getElementById('tombolTutup');
+    const modalOverlay = document.getElementById('modalOverlay');
+
+    tombolBuka.addEventListener('click', () => {
+      modalOverlay.classList.add('popup-tampil');
+    });
+
+    tombolTutup.addEventListener('click', () => {
+      modalOverlay.classList.remove('popup-tampil');
+    });
+
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) {
+        modalOverlay.classList.add('popup-tampil');
+      }
+    });
+  </script>
+</body>
+
+</html>
